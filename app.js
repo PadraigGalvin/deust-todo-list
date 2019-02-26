@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const tasksRouter = require('./routes/tasks');
 
 const port = 3000;
 const app = express();
@@ -16,8 +17,10 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send('Hello, world');
+  res.redirect('/tasks');
 });
+
+app.use('/tasks', tasksRouter);
 
 // Error handlers
 app.use((req, res, next) => {

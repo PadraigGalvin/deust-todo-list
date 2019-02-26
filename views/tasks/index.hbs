@@ -1,0 +1,9 @@
+<h2>My tasks</h2>
+<ul class="task-list">
+	{{#each tasks}}
+		<li{{#if this.done }} class="done"{{/if}}>
+			[{{ this.id }}]
+			{{ this.description }}
+		</li>
+	{{/each}}
+</ul>
