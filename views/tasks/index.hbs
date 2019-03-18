@@ -4,6 +4,13 @@
 		<li{{#if this.done }} class="done"{{/if}}>
 			[{{ this.id }}]
 			{{ this.description }}
+			{{#if this.done }}
+				<a href="/tasks/undo/{{ this.id }}">Undo</a>
+			{{else}}
+				<a href="/tasks/done/{{ this.id }}">Done</a>
+			{{/if}}
+			<a href="/tasks/edit/{{ this.id }}">Edit</a>
+			<a href="/tasks/delete/{{ this.id }}">Delete</a>
 		</li>
 	{{/each}}
 </ul>
