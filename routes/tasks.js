@@ -69,7 +69,7 @@ router.get('/undo/:id', (req, res) => {
 // remove task
 router.get('/delete/:id', (req, res) => {
   let index = tasks.findIndex((i) => i.id === parseInt(req.params.id, 10));
-  if (!task) {
+  if (index < 0) {
     return res.status(404).send('Not found');
   }
   tasks.splice(index, 1);
